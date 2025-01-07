@@ -1,23 +1,27 @@
-
+'''
+python_version = "3.8.0"
+pydub_version = "0.25.1"
+ffmpeg_version = "1.4"
+'''
 
 def add_intro_song(audio_segment, intro_song):
     """
     Ajoute une musique d'introduction
-    IL est possible de spécifier dans cette foncrion la durée de la fondue(crossfade) entre l'intro et le début du podcast
+    Il est possible de spécifier dans cette fonction la durée de la fondue(crossfade) entre l'intro et le début du podcast
     """
    
 
 def add_ending_theme_song(audio_segment, ending_song):
     """
     Ajoute une musique d'introduction
-    IL est possible de spécifier dans cette foncrion la durée de la fondue(crossfade) entre l'intro et le début du podcast)
+    Il est possible de spécifier dans cette fonction la durée de la fondue(crossfade) entre l'intro et le début du podcast
     """
    
 
 def add_effect(audio_segment, crossfade=False,time_placement, effect, cf_threshold=10000):
     """
     Ajoute une musique d'introduction
-    Il est possible de spécifier dans cette foncrion si il faut un crossfade  et la durée de cette fondue(crossfade) entre l'intro et le début du podcast)
+    Il est possible de spécifier dans cette foncrion si il faut un crossfade et la durée de cette fondue(crossfade) entre l'intro et le début du podcast
     """
     
 
