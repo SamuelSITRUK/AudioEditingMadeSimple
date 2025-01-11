@@ -60,9 +60,33 @@ def detect_silence(audio_segment, silence_thresh=-50.0, chunk_size=10, silence_d
     return silence_starts
 
 
-def remove_long_silences(audio_path, output_path, silence_thresh=-50.0):
+def remove_long_silences(audio_path, output_path, silence_thresh=-50.0, chunk_size=10, silence_duration=1500):
     """
-    Supprime les silences de plus de xx secondes du fichier audio fourni
+    Supprime les silences de plus dsilence_duration du fichier audio fourni
     et enregistre le résultat.
     """
-   
+    # Chargement de l'audio
+    audio = AudioSegment.from_file(audio_path)
+    print(f"Longueur totale du fichier audio : {len(audio)} ms")
+
+    # Détection des silences
+    silence_chunks = detect_silence(audio, silence_thresh, chunk_size, silence_duration)
+    print(f"Silences détectés : {silence_chunks}")
+
+    # Reconstruction de l'audio sans les silences
+    segments = []
+    last_end = 0
+
+    for start, end in silence_chunks:
+        # Ajoute la partie audio entre la fin du dernier segment et le début du silence
+        segments.append(audio[last_end:start])
+        last_end = end
+
+    # Ajoute la dernière portion de l'audio
+    segments.append(audio[last_end:])
+
+    # Combine les segments pour recréer l'audio
+    output_audio = sum(segments)
+    output_audio.export(output_path, format="wav")
+    print(f"Le fichier audio sans les silences a été sauvegardé sous '{output_path}'.")
+
