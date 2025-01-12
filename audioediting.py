@@ -18,11 +18,22 @@ def add_ending_theme_song(audio_segment, ending_song):
     """
    
 
-def add_effect(audio_segment, crossfade=False,time_placement, effect, cf_threshold=10000):
+def add_effect(audio_segment, effect, time_placement, crossfade_beginning=False,crosffade_end=False, cf_threshold_beginning=3000, cf_threshold_end=3000):
     """
     Ajoute une musique d'introduction
-    Il est possible de spécifier dans cette foncrion si il faut un crossfade et la durée de cette fondue(crossfade) entre l'intro et le début du podcast
+    IL est possible de spécifidans cette foncrion la durée de la fondue(crossfade) entre l'intro et le début du podcast)
     """
+    before_effect = audio_segment[:time_placement]
+    after_effect = audio_segment[time_placement:]
+    if crossfade_beginning & crossfade_end:
+            audio_segment = before_effect.append(effect, crossfade=cf_threshold_beginning).append(after_effect, crossfade=cf_threshold_end)
+    elif crossfade_beginning:
+            audio_segment = before_effect.append(effect, crossfade=cf_threshold_beginning).append(after_effect)
+    elif crossfade_ending:
+            audio_segment = before_effect.append(effect).append(after_effect, crossfade=cf_threshold_end)
+    else :
+            audio_segment = before_effect.append(effect).append(after_effect)
+    return audio_segment  
     
 def detect_silence(audio_segment, silence_thresh=-50.0, chunk_size=10, silence_duration=1500):
     """
