@@ -101,3 +101,13 @@ def remove_long_silences(audio_path, output_path, silence_thresh=-50.0, chunk_si
     output_audio.export(output_path, format="wav")
     print(f"Le fichier audio sans les silences a été sauvegardé sous '{output_path}'.")
 
+#Ajout d'une fonction background_sound pour ajouter une musique de fond
+#Les paramètres seraient
+#La musique à ajouter
+#la fichier dans lequel ajouter la musique
+#un time stamp pour quand l'ajouter
+#un time stamp pour quand l'arrêter
+#un  crossfade_beginning et cf_threshold_beginning
+#un crosffade_end et cf_threshold_end
+
+#Une fonction de test
