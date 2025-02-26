@@ -40,9 +40,9 @@ def detect_silence(audio_segment, silence_thresh=-50.0, chunk_size=10, silence_d
     Détecte les périodes de silence dans un fichier audio.
     
     audio_segment=segment dans lequel enlever les silences
-    chunk_size= taille des morceaux de audio_segment à analyser pout détecter les silences (en mmilisecondes)
+    chunk_size= taille des morceaux de audio_segment à analyser pout détecter les silences (en millisecondes)
     silence_thresh= volume audio à partir duquel on est considéré en silence
-    silence_duration= durée à partir duqel un silence est considéré et doit être placé dans la liste des tuples
+    silence_duration= durée à partir duquel un silence est considéré comme silence à placer dnas la liste de sptuples
     
     Retourne une liste de tuples (start, end) pour les périodes de silence.
     """
@@ -73,8 +73,8 @@ def detect_silence(audio_segment, silence_thresh=-50.0, chunk_size=10, silence_d
 
 def remove_long_silences(audio_path, output_path, silence_thresh=-50.0, chunk_size=10, silence_duration=1500):
     """
-    Supprime les silences de plus dsilence_duration du fichier audio fourni
-    et enregistre le résultat.
+    Supprime les silences de au moins la durée en millisecondes  de silence_duration du fichier audio fourni
+    et enregistre le résultat au chemin fourni par output_path.
     """
     # Chargement de l'audio
     audio = AudioSegment.from_file(audio_path)
