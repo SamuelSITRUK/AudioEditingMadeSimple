@@ -119,3 +119,6 @@ def remove_long_silences(audio_path, output_path, silence_thresh=-50.0, chunk_si
 #un crosffade_end et cf_threshold_end
 
 #Une fonction de test
+
+
+#Testing via docker !!!
