@@ -1,7 +1,14 @@
 '''
+Voici les dépendances nécéssaires pour faire tourner ce script
+
 python_version = "3.8.0"
 pydub_version = "0.25.1"
 ffmpeg_version = "1.4"
+'''
+
+'''
+from pydub import AudioSegment
+import ffmpeg
 '''
 
 def add_intro_song(audio_segment, intro_song):
