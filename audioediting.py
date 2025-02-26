@@ -74,7 +74,7 @@ def detect_silence(audio_segment, silence_thresh=-50.0, chunk_size=10, silence_d
 def remove_long_silences(audio_path, output_path, silence_thresh=-50.0, chunk_size=10, silence_duration=1500):
     """
     Supprime les silences (les segements audio sont considérés comme des silences au volume spécifié par silence_thresh ou en déçà)
-    à partire du volde au moins la durée en millisecondes  de silence_duration du fichier audio fourni au format .wav
+    à partire de au moins la durée en millisecondes  de silence_duration du fichier audio fourni au format .wav
     et enregistre le résultat au chemin fourni par output_path au format .wav.
     """
     # Chargement de l'audio
